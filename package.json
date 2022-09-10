@@ -1,0 +1,33 @@
+{
+  "name": "corrently-charge",
+  "version": "0.1.0",
+  "description": "Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022 - Enpulse challenge.",
+  "main": "lib.js",
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energychain/corrently-charge.git"
+  },
+  "keywords": [
+    "cpo",
+    "emt",
+    "charging",
+    "tariff",
+    "corrently"
+  ],
+  "author": "STROMDAO GmbH <dev@stromdao.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/energychain/corrently-charge/issues"
+  },
+  "homepage": "https://github.com/energychain/corrently-charge#readme",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2"
+  }
+}
