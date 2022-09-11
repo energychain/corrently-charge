@@ -16,6 +16,8 @@ Either as  `.env` or during instanciation
 |---|---|
 | `SOLAR_PREDICTION` | URL to the solar prediction API to use |
 | `GSI_PREDICTION` | URL to the Green Power Index API to use |
+| `localPrice`  | Price per kwh for local energy (eq. solar) |
+| `gridPrice`   | Price per kwh for energy from grid |
 
 
 

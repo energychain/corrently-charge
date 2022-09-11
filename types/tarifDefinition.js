@@ -6,8 +6,8 @@ module.exports = function(name,maxpower,minduration,price,ghg,soctarget,priceuni
   this.name = name;
   this.maxpower = maxpower;
   this.minduration = minduration; // Minimum time required vehicle to be connected in Minutes
-  this.price = price; 
-  this.ghg = ghg;
+  this.price = Math.round(price*100)/100;
+  this.ghg = Math.round(ghg);
   this.priceunit = priceunit;
   this.soctarget = soctarget;
   return this;

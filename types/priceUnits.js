@@ -1,11 +1,14 @@
-module.exports = { 
+module.exports = {
   'kwh': {
-    name:'per Kilo-Watt-Hour'
+    name:'per Kilo-Watt-Hour',
+    calculation: 'metered'
   },
   'time': {
-    name: 'per Minute'
+    name: 'per Minute',
+    calculation: 'metered'
   },
   'fix': {
-    name: 'fix'
+    name: 'fix',
+    calculation: 'fix'
   }
 }

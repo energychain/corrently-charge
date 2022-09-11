@@ -7,8 +7,8 @@ module.exports = function(conf) {
 
     this.getTariffs = async function(chargingStart) {
       const CO2PerKwh = 35;
-      const localPrice = 30;
-      const gridPrice = 70;
+      const localPrice = conf.localPrice * 1;
+      const gridPrice = conf.gridPrice * 1;
 
       const pvPredictionAPI = await axios.get(conf.SOLAR_PREDICTION, {
         headers:{
@@ -63,7 +63,7 @@ module.exports = function(conf) {
       chargingTime = 0;
 
       ghg = 0;
-      chargingSessionEnergy = chargingStart.capacity * ( chargingStart.soc/100 );
+      chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
 
 
       while((i<pvPrediction.length) && (chargingSessionEnergy > 0)) {
@@ -89,7 +89,7 @@ module.exports = function(conf) {
       let spotHours = [];
       let ecoEndTime = ((chargingTimeLocal - chargingTimeGrid)/2) + startTime;
 
-      chargingSessionEnergy = chargingStart.capacity * ( chargingStart.soc/100 );
+      chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
 
       while((i<pvPrediction.length) && (chargingSessionEnergy > 0) && (pvPrediction[i].timestamp < ecoEndTime)) {
         if(pvPrediction[i].timestamp > startTime-3600000) {
@@ -123,8 +123,9 @@ module.exports = function(conf) {
       }
       tariffs.push(new tarifDefintion('Eco Full',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,100,priceUnits.fix));
 
-      // Calculation for 8 hour Tariff
-      const hrParkingTariffs = function(hrs) {
+      // Calculation hours fixed Tariff
+      const hrParkingTariffs = function(hrs,soctarget) {
+            if((typeof soctarget == 'undefined') || (soctarget == null)) soctarget = 100;
             i=0;
             chargingTime = hrs * 3600000;
             startTime = new Date().getTime();
@@ -134,7 +135,7 @@ module.exports = function(conf) {
             spotHours = [];
             ecoEndTime = startTime + chargingTime;
 
-            chargingSessionEnergy = chargingStart.capacity * ( chargingStart.soc/100 );
+            chargingSessionEnergy = (chargingStart.capacity * (soctarget/100))  * ( 1 - (chargingStart.soc/100) );
 
             while((i<pvPrediction.length) && (chargingSessionEnergy > 0) && (pvPrediction[i].timestamp < ecoEndTime)) {
               if((pvPrediction[i].timestamp > startTime-3600000) && (typeof pvPrediction[i].gsi !== 'undefined')) {
@@ -155,10 +156,10 @@ module.exports = function(conf) {
             i=0;
             while((i<spotHours.length) && (chargingSessionEnergy > 0)) {
               if(typeof  spotHours[i].gsi !== 'undefined') {
-                pvPrediction[i].used = chargingStart.maxpower;
+                spotHours[i].used = chargingStart.maxpower;
                 chargingSessionEnergy -= chargingStart.maxpower;
-                price += (chargingStart.maxpower/1000) * gridPrice;
-                ghg += (chargingStart.maxpower/1000) * spotHours[i].gsi.co2_g_oekostrom;
+                price += (spotHours[i].used/1000) * gridPrice;
+                ghg += (spotHours[i].used/1000) * spotHours[i].gsi.co2_g_oekostrom;
               }
               i++;
             }
@@ -166,14 +167,21 @@ module.exports = function(conf) {
               price -= Math.abs((chargingSessionEnergy/1000) * gridPrice)
             }
 
-            tariffs.push(new tarifDefintion(hrs+'h Fix',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,100,priceUnits.fix));
+            tariffs.push(new tarifDefintion(hrs+'h Fix SoC:'+soctarget+'%',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,soctarget,priceUnits.fix));
       }
       chargingTimeLocal - chargingTimeGrid
       let minHours = Math.floor(chargingTimeGrid / 3600000) + 1;
       let maxHours = Math.floor(chargingTimeLocal / 3600000) - 1;
-      for(let i=minHours;i<maxHours;i++) {
-        hrParkingTariffs(i);
+
+      for(let i=1;i<maxHours;i++) {
+        for(let k=100;k>chargingStart.soc;k = k-20) {
+          chargingSessionEnergy = (chargingStart.capacity * (k/100)) * ( 1 - (chargingStart.soc/100) );
+          if( (chargingSessionEnergy / i) < chargingStart.maxpower  ) {
+            hrParkingTariffs(i,k);
+          }
+        }
       }
+
 
       return tariffs;
     }
