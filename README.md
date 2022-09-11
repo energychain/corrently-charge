@@ -2,7 +2,25 @@
 
 <a href="https://stromdao.de/" target="_blank" title="STROMDAO - Digital Energy Infrastructure"><img src="./static/stromdao.png" align="right" height="85px" hspace="30px" vspace="30px"></a>
 
-**Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of  #mobilitython2022  - Enpulse challenge.**
+**Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022  - Enpulse challenge.**
+
+## Installation
+```
+npm install --save corrently-charge
+```
+
+## Configuration
+Either as  `.env` or during instanciation
+
+|-----------------|------------------|
+| SOLAR_PREDICTION | URL to the solar prediction API to use |
+| GSI_PREDICTION | URL to the Green Power Index API to use |
+|-----------------|------------------|
+ 
+
+## Limitations
+- Does not respect none-linear maxpower
+- Does not respect reactive power in low power charging conditions
 
 ## [CONTRIBUTING](https://github.com/energychain/corrently-charge/blob/main/CONTRIBUTING.md)
 
@@ -24,7 +42,6 @@ kontakt@stromdao.com  <br/>
 Handelsregister: HRB 728691 (Amtsgericht Mannheim)
 </addr>
 
-Project Website: https://tydids.com/
 
 ## LICENSE
 [MIT](./LICENSE)
