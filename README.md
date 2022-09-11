@@ -1,14 +1,11 @@
 # corrently-charge
 
-
-
 <a href="https://stromdao.de/" target="_blank" title="STROMDAO - Digital Energy Infrastructure"><img src="./static/stromdao.png" align="right" height="85px" hspace="30px" vspace="30px"></a>
 
 **Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022  - Enpulse challenge.**
 
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[Demo MVP](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
 
 ## Challenge
 Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
@@ -21,6 +18,32 @@ Todays BEV charging lacks communication between driver/customer and charge point
 - ensure regulatory compliance   
 - consult clients using data driving transparency
 - expedite adoption of eMobility by providing  state of the art CX
+
+### Problem definition
+Flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging-points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limit customer experience in an upcomming competitive market.   
+
+### Detailed market analysis
+
+### Proposed solution
+Automated tariff evaluation as soon as charging session starts. Tariffs take local generation and green power index into account giving different tariffs to the client as options of required energy (final state of charge), available time, energymix.
+
+Selected tariff requirements are automatically fulfilled via a scheduler connection to the CPO backend (via OCPP protocol). The sollution corrently-charge acts as an intermediate between a given energy management system and the charge point.
+
+Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
+
+### Business model
+
+### Needed resources to implement the solution
+
+### [Working prototype](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
+This prototype takes a real charging station located in the village Mauer (Germany) and uses the prediction of a PV power plant at the same grid connection point as local energy generation.
+
+**Configured prices**
+| Price per kWh | Source |
+|---|---|
+| 0.75€ | Mains / public grid |
+| 0.30€ | PV / local generation |
+
 
 ## Installation
 ```
