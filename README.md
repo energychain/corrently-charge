@@ -12,11 +12,11 @@ npm install --save corrently-charge
 ## Configuration
 Either as  `.env` or during instanciation
 
-|-----------------|------------------|
+|---|---|
 | SOLAR_PREDICTION | URL to the solar prediction API to use |
 | GSI_PREDICTION | URL to the Green Power Index API to use |
-|-----------------|------------------|
- 
+
+
 
 ## Limitations
 - Does not respect none-linear maxpower
