@@ -11,8 +11,8 @@ module.exports = {
     name: 'fix',
     calculation: 'fix'
   },
-  'subscribtion': {
-    name: 'subscribtion',
+  'subscription': {
+    name: 'subscription',
     calculation: 'month'
   }
 }

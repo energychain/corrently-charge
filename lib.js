@@ -182,9 +182,9 @@ module.exports = function(conf) {
         }
       }
 
-      tariffs.push(new tarifDefintion('20.000 km/yr (50%, 6h)',chargingStart.maxpower,6*60,9.90,0,50,priceUnits.subscribtion));
-      tariffs.push(new tarifDefintion('20.000 km/yr (80%, 6h)',chargingStart.maxpower,6*60,14.90,0,80,priceUnits.subscribtion));
-      tariffs.push(new tarifDefintion('20.000 km/yr (50%, 12h)',chargingStart.maxpower,12*60,6.90,0,50,priceUnits.subscribtion));
+      tariffs.push(new tarifDefintion('20.000 km/yr (50%, 6h)',chargingStart.maxpower,6*60,9.90,0,50,priceUnits.subscription));
+      tariffs.push(new tarifDefintion('20.000 km/yr (80%, 6h)',chargingStart.maxpower,6*60,14.90,0,80,priceUnits.subscription));
+      tariffs.push(new tarifDefintion('20.000 km/yr (50%, 12h)',chargingStart.maxpower,12*60,6.90,0,50,priceUnits.subscription));
 
       return tariffs;
     }

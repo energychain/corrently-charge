@@ -1,6 +1,6 @@
 {
   "name": "corrently-charge",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022 - Enpulse challenge.",
   "main": "lib.js",
   "scripts": {
