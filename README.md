@@ -6,6 +6,12 @@
 
 [Demo MVP](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
 
+## Challenge
+Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
+
+*If we would know the goals the driver has when connecting to the charging point, we could optimize charging energy*
+
+
 
 ## Installation
 ```
