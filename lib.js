@@ -43,7 +43,7 @@ module.exports = function(conf) {
       const priceUnits = require("./types/priceUnits.js");
 
       // Initialize some helper variables
-      let chargingSessionEnergy = chargingStart.capacity * ( chargingStart.soc/100 );
+      let chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
       let chargingTime = (chargingSessionEnergy / chargingStart.maxpower) * 3600000;
       let ghg = 0;
       let startTime = new Date().getTime();
