@@ -9,7 +9,7 @@
 ## Challenge
 Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
 
-*If we would know the goals the driver has when connecting to the charging point, we could optimize charging energy*
+*If we would know the goals the driver has by time of connecting to our charging point, we could optimize our  energy dispatch for the charging session.*
 
 
 
