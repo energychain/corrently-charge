@@ -11,7 +11,12 @@ Todays BEV charging lacks communication between driver/customer and charge point
 
 *If we would know the goals the driver has by time of connecting to our charging point, we could optimize our  energy dispatch for the charging session.*
 
-
+### Goals
+- integrate local generation (eq. photovoltaics) into tariffs
+- reduce scope2 greenhouse gas emissions for customers
+- ensure regulatory compliance   
+- consult clients using data driving transparency
+- expedite adoption of eMobility by providing  state of the art CX
 
 ## Installation
 ```
