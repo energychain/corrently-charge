@@ -4,6 +4,9 @@
 
 **Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022  - Enpulse challenge.**
 
+[Demo MVP](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
+
+
 ## Installation
 ```
 npm install --save corrently-charge
