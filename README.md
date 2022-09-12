@@ -4,6 +4,8 @@
 
 **Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022  - Enpulse challenge.**
 
+Tariff builder for ChargePointOperators in the area of employee, tradefairs, hotels or areal parking.  
+
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -43,7 +45,6 @@ This prototype takes a real charging station located in the village Mauer (Germa
 |---|---|
 | 0.75€ | Mains / public grid |
 | 0.30€ | PV / local generation |
-
 
 ## Installation
 ```
