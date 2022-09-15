@@ -46,6 +46,8 @@ module.exports = function(conf) {
       let chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
       let chargingTime = (chargingSessionEnergy / chargingStart.maxpower) * 3600000;
       let ghg = 0;
+      let localEnergy = 0;
+
       let startTime = new Date().getTime();
 
       // Fast Full Tariff
@@ -56,14 +58,16 @@ module.exports = function(conf) {
       // tarifDefintion(name,maxpower,minduration,price,ghg,soctarget,priceunit)
       let chargingTimeGrid = chargingTime;
 
-      tariffs.push(new tarifDefintion('Fast Full',chargingStart.maxpower,Math.round(chargingTime/60000),gridPrice,ghg,100,priceUnits.kwh));
+      tariffs.push(new tarifDefintion('Fast Full',chargingStart.maxpower,Math.round(chargingTime/60000),gridPrice,ghg,100,priceUnits.kwh,localEnergy));
 
       // Calculation for Local Green Full Tariff
       let i=0;
       chargingTime = 0;
 
       ghg = 0;
+      localEnergy = 0;
       chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
+
 
 
       while((i<pvPrediction.length) && (chargingSessionEnergy > 0)) {
@@ -71,13 +75,14 @@ module.exports = function(conf) {
             let availableEnergy = pvPrediction[i].wh;
             if(availableEnergy > chargingStart.maxpower) availableEnergy = chargingStart.maxpower;
             chargingSessionEnergy -= availableEnergy;
+            localEnergy += availableEnergy;
             ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
             chargingTime = pvPrediction[i].timestamp - startTime;
         }
         i++;
       }
       let chargingTimeLocal = chargingTime;
-      tariffs.push(new tarifDefintion('Local Green Full',chargingStart.maxpower,Math.round(chargingTime/60000),localPrice,ghg,100,priceUnits.kwh));
+      tariffs.push(new tarifDefintion('Local Green Full',chargingStart.maxpower,Math.round(chargingTime/60000),localPrice,ghg,100,priceUnits.kwh,localEnergy));
 
       // Calculation for Eco Tariff
       i=0;
@@ -85,6 +90,7 @@ module.exports = function(conf) {
       startTime = new Date().getTime();
       ghg = 0;
       let price = 0;
+      localEnergy = 0;
 
       let spotHours = [];
       let ecoEndTime = ((chargingTimeLocal - chargingTimeGrid)/2) + startTime;
@@ -97,6 +103,7 @@ module.exports = function(conf) {
             if(availableEnergy > chargingStart.maxpower) availableEnergy = chargingStart.maxpower;
             pvPrediction[i].used = availableEnergy;
             chargingSessionEnergy -= availableEnergy;
+            localEnergy += availableEnergy;
             price += (availableEnergy/1000) * localPrice;
             ghg -= (availableEnergy/1000)*CO2PerKwh;
             chargingTime = pvPrediction[i].timestamp - startTime;
@@ -121,7 +128,7 @@ module.exports = function(conf) {
       if(chargingSessionEnergy < 0 ) {
         price -= Math.abs((chargingSessionEnergy/1000) * gridPrice)
       }
-      tariffs.push(new tarifDefintion('Eco Full',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,100,priceUnits.fix));
+      tariffs.push(new tarifDefintion('Eco Full',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,100,priceUnits.fix,localEnergy));
 
       // Calculation hours fixed Tariff
       const hrParkingTariffs = function(hrs,soctarget) {
@@ -131,6 +138,7 @@ module.exports = function(conf) {
             startTime = new Date().getTime();
             ghg = 0;
             price = 0;
+            localEnergy = 0;
 
             spotHours = [];
             ecoEndTime = startTime + chargingTime;
@@ -143,6 +151,7 @@ module.exports = function(conf) {
                   if(availableEnergy > chargingStart.maxpower) availableEnergy = chargingStart.maxpower;
                   pvPrediction[i].used = availableEnergy;
                   chargingSessionEnergy -= availableEnergy;
+                  localEnergy += availableEnergy;
                   price += (availableEnergy/1000) * localPrice;
                   ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
                   if((pvPrediction[i].used == 0) && (typeof pvPrediction[i].gsi !== 'undefined')) {
@@ -167,7 +176,7 @@ module.exports = function(conf) {
               price -= Math.abs((chargingSessionEnergy/1000) * gridPrice)
             }
 
-            tariffs.push(new tarifDefintion(hrs+'h Fix SoC:'+soctarget+'%',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,soctarget,priceUnits.fix));
+            tariffs.push(new tarifDefintion(hrs+'h Fix SoC:'+soctarget+'%',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,soctarget,priceUnits.fix,localEnergy));
       }
       chargingTimeLocal - chargingTimeGrid
       let minHours = Math.floor(chargingTimeGrid / 3600000) + 1;
