@@ -8,8 +8,12 @@ Tariff builder for ChargePointOperators in the area of employee, tradefairs, hot
 
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)]
+
 
 ## Challenge
+
+
 Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
 
 *If we would know the goals the driver has by time of connecting to our charging point, we could optimize our  energy dispatch for the charging session.*
