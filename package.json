@@ -5,7 +5,7 @@
   "main": "dist/lib.js",
   "scripts": {
     "build": "tsc",
-    "test": "tsc && cd dist && node test.js dotenv_config_path=../"
+    "test": "tsc && cd dist && node test.js"
   },
   "repository": {
     "type": "git",
