@@ -76,7 +76,7 @@ module.exports = function(conf) {
             if(availableEnergy > chargingStart.maxpower) availableEnergy = chargingStart.maxpower;
             chargingSessionEnergy -= availableEnergy;
             localEnergy += availableEnergy;
-            ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
+            // ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
             chargingTime = pvPrediction[i].timestamp - startTime;
         }
         i++;
@@ -93,19 +93,20 @@ module.exports = function(conf) {
       localEnergy = 0;
 
       let spotHours = [];
-      let ecoEndTime = ((chargingTimeLocal - chargingTimeGrid)/2) + startTime;
+      let ecoEndTime = chargingTimeLocal + startTime;
 
       chargingSessionEnergy = chargingStart.capacity * ( 1 - (chargingStart.soc/100) );
+      const ecohalf = chargingSessionEnergy / 2;
 
-      while((i<pvPrediction.length) && (chargingSessionEnergy > 0) && (pvPrediction[i].timestamp < ecoEndTime)) {
+      while((i<pvPrediction.length) && (chargingSessionEnergy > 0) && (chargingSessionEnergy > ecohalf) && (pvPrediction[i].timestamp < ecoEndTime)) {
         if(pvPrediction[i].timestamp > startTime-3600000) {
             let availableEnergy = pvPrediction[i].wh;
             if(availableEnergy > chargingStart.maxpower) availableEnergy = chargingStart.maxpower;
             pvPrediction[i].used = availableEnergy;
             chargingSessionEnergy -= availableEnergy;
-            localEnergy += availableEnergy;
+            localEnergy += pvPrediction[i].used;
             price += (availableEnergy/1000) * localPrice;
-            ghg -= (availableEnergy/1000)*CO2PerKwh;
+            // ghg -= (availableEnergy/1000)*CO2PerKwh;
             chargingTime = pvPrediction[i].timestamp - startTime;
             if((pvPrediction[i].used == 0) && (typeof pvPrediction[i].gsi !== 'undefined')) {
               spotHours.push(pvPrediction[i]);
@@ -153,7 +154,7 @@ module.exports = function(conf) {
                   chargingSessionEnergy -= availableEnergy;
                   localEnergy += availableEnergy;
                   price += (availableEnergy/1000) * localPrice;
-                  ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
+                  // ghg -= (availableEnergy/1000) * pvPrediction[i].gsi.co2_g_oekostrom;
                   if((pvPrediction[i].used == 0) && (typeof pvPrediction[i].gsi !== 'undefined')) {
                     spotHours.push(pvPrediction[i]);
                   }
