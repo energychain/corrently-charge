@@ -25,8 +25,6 @@ Todays BEV charging lacks communication between driver/customer and charge point
 ### Problem definition
 Flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging-points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limit customer experience in an upcomming competitive market.   
 
-### Detailed market analysis
-
 ### Proposed solution
 Automated tariff evaluation as soon as charging session starts. Tariffs take local generation and green power index into account giving different tariffs to the client as options of required energy (final state of charge), available time, energymix.
 
@@ -34,10 +32,10 @@ Selected tariff requirements are automatically fulfilled via a scheduler connect
 
 Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
 
-### Business model
-[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
+[![Sample Plugin UX](./static/screenshot_result.jpg)](./screenshot_result.jpg)
 
-### Needed resources to implement the solution
+### Business Model Canvas
+[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
 
 ### [Working prototype](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
 This prototype takes a real charging station located in the village Mauer (Germany) and uses the prediction of a PV power plant at the same grid connection point as local energy generation.
