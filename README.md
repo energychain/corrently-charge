@@ -8,11 +8,8 @@ Tariff builder for ChargePointOperators in the area of employee, tradefairs, hot
 
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
-
 
 ## Challenge
-
 
 Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
 
@@ -38,6 +35,7 @@ Selected tariff requirements are automatically fulfilled via a scheduler connect
 Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
 
 ### Business model
+[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
 
 ### Needed resources to implement the solution
 
