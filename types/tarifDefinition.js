@@ -12,5 +12,8 @@ module.exports = function(name,maxpower,minduration,price,ghg,soctarget,priceuni
   this.soctarget = soctarget;
   this.localenergy = localenergy;
   this.totalenergy = reservedenergie;
+  if(!isNaN(reservedenergie)) {
+    this.gridenergy = reservedenergie - localenergy;
+  }
   return this;
 }
