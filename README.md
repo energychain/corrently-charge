@@ -8,7 +8,7 @@ Tariff builder for ChargePointOperators in the area of employee, tradefairs, hot
 
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)]
+[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
 
 
 ## Challenge
@@ -33,7 +33,7 @@ Flexibility of BEV charging for demand-side-management could not be used in publ
 ### Proposed solution
 Automated tariff evaluation as soon as charging session starts. Tariffs take local generation and green power index into account giving different tariffs to the client as options of required energy (final state of charge), available time, energymix.
 
-Selected tariff requirements are automatically fulfilled via a scheduler connection to the CPO backend (via OCPP protocol). The sollution corrently-charge acts as an intermediate between a given energy management system and the charge point.
+Selected tariff requirements are automatically fulfilled via a scheduler connection to CPO's backend (via OCPP protocol). The sollution corrently-charge acts as an intermediate between a given energy management system and the charge point.
 
 Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
 
