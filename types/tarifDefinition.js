@@ -2,7 +2,7 @@
 * Decleration of a Tarif
 */
 
-module.exports = function(name,maxpower,minduration,price,ghg,soctarget,priceunit,localenergy) {
+module.exports = function(name,maxpower,minduration,price,ghg,soctarget,priceunit,localenergy,reservedenergie) {
   this.name = name;
   this.maxpower = maxpower;
   this.minduration = minduration; // Minimum time required vehicle to be connected in Minutes
@@ -11,5 +11,6 @@ module.exports = function(name,maxpower,minduration,price,ghg,soctarget,priceuni
   this.priceunit = priceunit;
   this.soctarget = soctarget;
   this.localenergy = localenergy;
+  this.totalenergy = reservedenergie;
   return this;
 }

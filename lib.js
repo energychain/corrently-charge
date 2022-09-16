@@ -145,6 +145,7 @@ module.exports = function(conf) {
             ecoEndTime = startTime + chargingTime;
 
             chargingSessionEnergy = (chargingStart.capacity * (soctarget/100))  * ( 1 - (chargingStart.soc/100) );
+            const reservedenergie = chargingSessionEnergy;
 
             while((i<pvPrediction.length) && (chargingSessionEnergy > 0) && (pvPrediction[i].timestamp < ecoEndTime)) {
               if((pvPrediction[i].timestamp > startTime-3600000) && (typeof pvPrediction[i].gsi !== 'undefined')) {
@@ -177,7 +178,7 @@ module.exports = function(conf) {
               price -= Math.abs((chargingSessionEnergy/1000) * gridPrice)
             }
 
-            tariffs.push(new tarifDefintion(hrs+'h Fix SoC:'+soctarget+'%',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,soctarget,priceUnits.fix,localEnergy));
+            tariffs.push(new tarifDefintion(hrs+'h Fix SoC:'+soctarget+'%',chargingStart.maxpower,Math.round(chargingTime/60000),price,ghg,soctarget,priceUnits.fix,localEnergy,reservedenergie));
       }
       chargingTimeLocal - chargingTimeGrid
       let minHours = Math.floor(chargingTimeGrid / 3600000) + 1;
