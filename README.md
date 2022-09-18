@@ -32,12 +32,12 @@ Selected tariff requirements are automatically fulfilled via a scheduler connect
 
 Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
 
-[![Sample Plugin UX](./static/screenshot_result.jpg)](./static/screenshot_result.png)
+[![Sample Plugin UX](./static/screenshot_result.png)](https://l.stromdao.de/corrently-charge)
 
 ### Business Model Canvas
-[![Business Model Canvas](./challenge/bmc.pdf](./EnPulse_BusinessModelCanvas.png)
+[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./challenge/bmc.pdf)
 
-Or [browse online](./challenge/slides/BusinessCanvas_CorrentlyCharge.htm.html)
+Or [browse GIT](./challenge/slides/BusinessCanvas_CorrentlyCharge.htm.html)
 
 ### [Working prototype](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
 This prototype takes a real charging station located in the village Mauer (Germany) and uses the prediction of a PV power plant at the same grid connection point as local energy generation.
