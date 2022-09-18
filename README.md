@@ -35,7 +35,9 @@ Core of the solution is encapsulated into an Open-Source Node Module [NPM](https
 [![Sample Plugin UX](./static/screenshot_result.jpg)](./screenshot_result.jpg)
 
 ### Business Model Canvas
-[![Business Model Canvas](./EnPulse_BusinessModelCanvas.png)](./EnPulse_BusinessModelCanvas.png)
+[![Business Model Canvas](./challenge/bmc.pdf](./EnPulse_BusinessModelCanvas.png)
+
+Or [browse online](./challenge/slides/img0.html)
 
 ### [Working prototype](https://smith.corrently.cloud/app/mobilitython-corrently-charge/tariff-selection-631dc4f8caf77e03f003740b)
 This prototype takes a real charging station located in the village Mauer (Germany) and uses the prediction of a PV power plant at the same grid connection point as local energy generation.
