@@ -6,8 +6,9 @@
 
 Tariff builder for ChargePointOperators in the area of employee, tradefairs, hotels or areal parking.  
 
+![npm](https://img.shields.io/npm/dw/corrently-charge)
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![CO2Offset](https://api.corrently.io/v2.0/ghgmanage/statusimg?host=corrently-charge&svg=1)](https://co2offset.io/badge.html?host=corrently-charge)
 
 ## Challenge
 
