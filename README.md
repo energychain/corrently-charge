@@ -32,7 +32,7 @@ Selected tariff requirements are automatically fulfilled via a scheduler connect
 
 Core of the solution is encapsulated into an Open-Source Node Module [NPM](https://www.npmjs.com/package/corrently-charge) allowing to quickly adopts new tariff models or limit number of available models based on requirements at a certain location.
 
-[![Sample Plugin UX](./static/screenshot_result.jpg)](./static/screenshot_result.jpg)
+[![Sample Plugin UX](./static/screenshot_result.jpg)](./static/screenshot_result.png)
 
 ### Business Model Canvas
 [![Business Model Canvas](./challenge/bmc.pdf](./EnPulse_BusinessModelCanvas.png)
