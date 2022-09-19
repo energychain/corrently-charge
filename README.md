@@ -49,6 +49,12 @@ This prototype takes a real charging station located in the village Mauer (Germa
 | 0.75€ | Mains / public grid |
 | 0.30€ | PV / local generation |
 
+## Architecture / Integration Points
+[![Architecture Schema Charging](./challenge/architecture.drawio.png)](./challenge/architecture.drawio.png)
+
+[Download draw.io xml](./static/architecture.drawio.xml)
+
+
 ## Installation
 ```
 npm install --save corrently-charge
