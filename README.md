@@ -52,7 +52,7 @@ This prototype takes a real charging station located in the village Mauer (Germa
 ## Architecture / Integration Points
 [![Architecture Schema Charging](./challenge/architecture.drawio.png)](./challenge/architecture.drawio.png)
 
-[Download draw.io xml](./static/architecture.drawio.xml)
+[Download draw.io xml](./challenge/architecture.drawio.xml)
 
 
 ## Installation
