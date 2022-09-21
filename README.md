@@ -2,9 +2,8 @@
 
 <a href="https://stromdao.de/" target="_blank" title="STROMDAO - Digital Energy Infrastructure"><img src="./static/stromdao.png" align="right" height="85px" hspace="30px" vspace="30px"></a>
 
-**Reference implementation of flexible charging tariffs for CPOs and EMTs based on Green Power Index and SolarEnergyPrediction APIs. Part of #mobilitython2022  - Enpulse challenge.**
+**Corrently Charge is a full automated tariff evaluation process. It automatically chooses different tariffs to the client depending on final state of charge, available time and energy mix. Selected tariff requirements are fulfilled via a scheduler connection to CPO's backend (via OCPP protocol). The solution Corrently Charge acts as an intermediate between a given energy management system and the charge point.**
 
-Tariff builder for ChargePointOperators in the area of employee, tradefairs, hotels or areal parking.  
 
 ![npm](https://img.shields.io/npm/dw/corrently-charge)
 [![Join the chat at https://gitter.im/stromdao/corrently-charge](https://badges.gitter.im/stromdao/corrently-charge.svg)](https://gitter.im/stromdao/corrently-charge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -24,7 +23,7 @@ Todays BEV charging lacks communication between driver/customer and charge point
 - expedite adoption of eMobility by providing  state of the art CX
 
 ### Problem definition
-Flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging-points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limit customer experience in an upcomming competitive market.   
+The flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limiting customer experience in an upcoming competitive market. 
 
 ### Proposed solution
 Automated tariff evaluation as soon as charging session starts. Tariffs take local generation and green power index into account giving different tariffs to the client as options of required energy (final state of charge), available time, energymix.
