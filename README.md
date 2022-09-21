@@ -13,7 +13,7 @@
 
 Todays BEV charging lacks communication between driver/customer and charge point operator (CPO).
 
-*If we would know the goals the driver has by time of connecting to our charging point, we could optimize our  energy dispatch for the charging session.*
+*If we would know the goals the driver has by time of connecting to our charging point, we could optimize the charging session, for the driver, for us and for the environment.*
 
 ### Goals
 - integrate local generation (eq. photovoltaics) into tariffs
@@ -23,7 +23,7 @@ Todays BEV charging lacks communication between driver/customer and charge point
 - expedite adoption of eMobility by providing  state of the art CX
 
 ### Problem definition
-The flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limiting customer experience in an upcoming competitive market. 
+The flexibility of BEV charging for demand-side-management could not be used in public or semi-public charging points. Local energy generation in conjunction with eMobility do not develop synergy effects making investments into energy management less attractive and limiting customer experience in an upcoming competitive market.
 
 ### Proposed solution
 Automated tariff evaluation as soon as charging session starts. Tariffs take local generation and green power index into account giving different tariffs to the client as options of required energy (final state of charge), available time, energymix.
